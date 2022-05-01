@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 # A sample Gemfile
 source 'https://rubygems.org'
-ruby '2.6.3'
+ruby '3.1.2'
 
-gem 'rails', '5.2.3'
+gem 'rails', '6.1.4.7'

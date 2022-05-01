@@ -31,18 +31,19 @@ services:
     tty: false
     stdin_open: false
   db:
-    image: "postgres:11.2"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    image: "mysql:8.0.29"
     environment:
-      - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=password"
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     volumes_from:
       - data
     ports:
-      - "5432:5432"
+      - "3306:3306"
   data:
     image: "busybox"
     volumes:
-      - "db:/var/lib/postgresql/data"
+      - "db:/var/lib/mysql"
       - "bundle:/usr/local/bundle"
 
 volumes:
